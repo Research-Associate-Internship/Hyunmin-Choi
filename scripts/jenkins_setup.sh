@@ -20,5 +20,5 @@ sudo systemctl start jenkins.service
 sudo systemctl enable jenkins.service
 
 #open port 8080 for jenkins
-sudo ufw allow 8080
-sudo ufw enable
+# sudo ufw allow 8080
+# sudo ufw enable
