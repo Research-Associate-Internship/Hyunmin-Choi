@@ -1,0 +1,4 @@
+#ignore everything in the vault folder
+#*.txt
+#*.hcl
+/vault/
