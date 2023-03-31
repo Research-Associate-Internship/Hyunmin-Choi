@@ -19,3 +19,5 @@
 	- create node name it and label it 
 	- select connect with ssh then pick ssh key that was added 
 	
+Alt-New
+---
