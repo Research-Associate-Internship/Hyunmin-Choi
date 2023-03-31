@@ -10,9 +10,7 @@
  ### On CLI or terminal:
  ***
 - ssh-keygen on master node as the Jenkins user
-  ```
-  su Jenkins
-  ```
+  ```su Jenkins```
 - ```ssh-copy-id``` to worker node from master node
 - add password to user to ssh to with passwd user command
 - Edit /etc/ssh/sshd_config file on worker node
