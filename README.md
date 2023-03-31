@@ -4,8 +4,8 @@
 ***
 ### Prerequisites:
 ***
- 	1. On worker add a user named Jenkins with a password.
-	2. add Jenkins user to the docker group to have permissions to use docker.
+1. On worker add a user named Jenkins with a password.
+2. add Jenkins user to the docker group to have permissions to use docker.
        
  ### On CLI or terminal:
  ***
@@ -20,8 +20,8 @@
 - restart sshd service in linux
  ### On Jenkins:
  ***
-	- In Jenkins credentials copy over rsa private key from master node  
-	- Go to manage nodes 
-	- create node name it and label it 
-	- select connect with ssh then pick ssh key that was added 
-	
+- In Jenkins credentials copy over rsa private key from master node  
+- Go to manage nodes 
+- create node name it and label it 
+- select connect with ssh then pick ssh key that was added 
+
