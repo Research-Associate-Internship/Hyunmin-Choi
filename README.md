@@ -9,13 +9,13 @@
        
  ### On CLI or terminal:
  ***
-- ssh-keygen on master node as the Jenkins user
-  ```su Jenkins```
+- ssh-keygen on master node as the jenkins user
+  ```su jenkins```
 - ```ssh-copy-id``` to worker node from master node
-- add password to user to ssh to with passwd user command
+- add password to user to ssh to with ```passwd user``` command
 - Edit /etc/ssh/sshd_config file on worker node
 	- change PasswordAuthentication to yes
-- restart sshd service in linux
+- restart sshd service in linux with ```systemctl restart sshd``` command 
  ### On Jenkins:
  ***
 - In Jenkins credentials copy over rsa private key from master node  
