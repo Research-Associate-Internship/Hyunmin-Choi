@@ -4,15 +4,16 @@
 
 ### Prerequisites:
 
-1. On worker add a user named Jenkins with a password.
-2. add Jenkins user to the docker group to have permissions to use docker.
+1. Create two instances one master node with jenkins installed and one worker node with tools needed installed
+2. On worker add a user named jenkins with a password.
+3. add jenkins user to the docker group to have permissions to use docker.
        
- ### On CLI or terminal:
+ ### Create SSH connection:
 
-- ssh-keygen on master node as the jenkins user
-  ```su jenkins```
+- become jenkins user on master node ```su jenkins```
+- ```ssh-keygen``` on master node as the jenkins user
 - ```ssh-copy-id``` to worker node from master node
-- add password to user to ssh to with ```passwd user``` command
+- Now on worker node add password to worker node jenkins user to ssh to with ```passwd jenkins``` command
 - Edit /etc/ssh/sshd_config file on worker node
 	- change PasswordAuthentication to yes
 - restart sshd service in linux with ```systemctl restart sshd``` command 
