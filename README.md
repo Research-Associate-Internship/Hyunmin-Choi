@@ -5,8 +5,8 @@
 ### Prerequisites:
 
 1. Create two instances one master node with jenkins installed and one worker node with tools needed installed
-2. On worker add a user named jenkins with a password.
-3. add jenkins user to the docker group to have permissions to use docker.
+2. On worker add a user named jenkins with a password. ```useradd jenkins``
+3. add jenkins user to the docker group to have permissions to use docker. ```usermod -aG docker jenkins```
        
  ### Create SSH connection:
 
