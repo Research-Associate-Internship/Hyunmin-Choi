@@ -1,6 +1,8 @@
+// global variable used to determine which terraform folder to use
 def TF = "ECR"
 
 pipeline {
+    // define which exact agent you want to run these instructions
     agent {
         label 'worker_node1'
     }
@@ -18,21 +20,22 @@ pipeline {
         }  
 
         
-        stage('terraform') {
+        stage('terraform initialize') {
             steps {
                 dir("${WORKSPACE}/Terraform/${TF}") {
                 sh 'ls'
                 sh 'pwd'
-                sh 'terraform init'
+                sh 'terraform init' // initializes your terraform env
                 }
             }
         }
         
         stage("plan") {
           steps {
+            // withCredentials passes your aws access key credentials thats stored in jenkins
             withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws_credentials', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                     dir("${WORKSPACE}/Terraform/${TF}") {
-                    sh 'terraform plan'
+                    sh 'terraform plan' //checks what will be created before actually creating resources 
                     }
             }
           }
@@ -42,13 +45,14 @@ pipeline {
           steps {
             withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws_credentials', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                     dir("${WORKSPACE}/Terraform/${TF}") {
-                    sh 'terraform apply --auto-approve'
+                    sh 'terraform apply --auto-approve' //actually creates the resoruces and auto approved to bypass manual approval for automation
                     }
             }
           }
         }
       
         stage("destroy") {
+          //Condition to only run this stage if you approve to run it
           input {
             message "Ready to destroy?"
             ok "Yes"
@@ -57,7 +61,7 @@ pipeline {
           steps {
             withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws_credentials', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                     dir("${WORKSPACE}/Terraform/${TF}") {
-                    sh 'terraform destroy --auto-approve'
+                    sh 'terraform destroy --auto-approve' //destroys all resources created for you 
                     }
             }
           }
