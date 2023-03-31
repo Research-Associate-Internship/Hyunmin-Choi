@@ -2,12 +2,12 @@
 
 ## Documentation to set up ssh with worker node on Jenkins
 ### Prerequisites:
- 	- On worker add a user named Jenkins with a password.
-	- add Jenkins user to the docker group to have permissions to use docker.
+ 	1. On worker add a user named Jenkins with a password.
+	2. add Jenkins user to the docker group to have permissions to use docker.
        
 ### On CLI or terminal:
 	- ssh-keygen on master node as the Jenkins user
-	  `su Jenkins`
+	  su Jenkins
 	- ssh-copy-id to worker node from master node
 	- add password to user to ssh to with passwd user command
 	- Edit /etc/ssh/sshd_config file on worker node
