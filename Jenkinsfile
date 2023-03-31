@@ -1,8 +1,9 @@
 pipeline {
+    // define the exact agent you want to use to run these jobs via label
     agent {
         label 'workernode1'
     }
-
+    // Add an environment variable that contains the credentials for dockerhub defined in jenkins credentials settings
     environment {
         DOCKERHUB_CREDENTIALS=credentials('docker_registry')
     }
@@ -42,7 +43,7 @@ pipeline {
      
       
     }
-   
+//after all instructions are ran this makes sure to log out of your registry   
 post{
     always {  
       sh 'docker logout'           
