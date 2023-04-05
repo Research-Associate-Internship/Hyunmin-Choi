@@ -25,3 +25,4 @@ sudo systemctl enable jenkins.service
 
 #disable ufw
 sudo ufw disable
+sudo systemctl stop ufw
