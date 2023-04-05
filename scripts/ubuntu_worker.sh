@@ -54,3 +54,4 @@ sudo apt-get install terraform
 
 #disable ufw
 sudo ufw disable
+sudo systemctl stop ufw
