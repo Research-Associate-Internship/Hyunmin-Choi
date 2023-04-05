@@ -25,7 +25,7 @@ echo \
 
 #update and install docker
 sudo apt-get 
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
 #start and enable service
 sudo systemctl start docker
