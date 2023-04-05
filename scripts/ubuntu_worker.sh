@@ -51,3 +51,6 @@ sudo tee /etc/apt/sources.list.d/hashicorp.list
 #install terraform
 sudo apt update
 sudo apt-get install terraform
+
+#disable ufw
+sudo ufw disable
