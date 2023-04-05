@@ -15,5 +15,5 @@ echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://
 #Update
 sudo apt-get update
 
-#install consul comes with vault
-sudo apt-get install consul -y
+#install vault package
+sudo apt-get install vault -y
