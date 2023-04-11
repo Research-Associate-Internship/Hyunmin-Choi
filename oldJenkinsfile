@@ -3,6 +3,10 @@ pipeline {
     agent {
         label 'workernode1'
     }
+    // Add an environment variable that contains the credentials for dockerhub defined in jenkins credentials settings
+    environment {
+        DOCKERHUB_CREDENTIALS=credentials('docker_registry')
+    }
 
     stages {
         stage('Checkout') {
@@ -24,11 +28,8 @@ pipeline {
 
         
         stage('Login to Docker Hub') {
-            
             steps {
-                withCredentials([[$class: 'VaultUsernamePasswordCredentialBinding', credentialsId: 'vault-docker', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME']]) {
-                sh 'echo $PASSWORD | docker login -u $USERNAME --password-stdin'
-                }
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
             }
         }
 
