@@ -24,7 +24,6 @@ pipeline {
 
         
         stage('Login to Docker Hub') {
-            
             steps {
                 withCredentials([[$class: 'VaultUsernamePasswordCredentialBinding', credentialsId: 'vault-docker', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME']]) {
                 sh 'echo $PASSWORD | docker login -u $USERNAME --password-stdin'
