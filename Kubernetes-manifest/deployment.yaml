@@ -20,15 +20,15 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 80
-        resources:
-        #guarnteed resources
-          requests:
-            memory: "512Mi"
-            cpu: "100m"
-        #maximum resources
-          limits:
-            memory: "1024Mi"
-            cpu: "200m"
+        # resources:
+        # #guarnteed resources
+        #   requests:
+        #     memory: "512Mi"
+        #     cpu: "100m"
+        # #maximum resources
+        #   limits:
+        #     memory: "1024Mi"
+        #     cpu: "200m"
       # imagePullSecrets:
       # - name: myregistry
     
