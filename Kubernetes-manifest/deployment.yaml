@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: DevSecOps-kubernetes-deployment
+  labels:
+    app: accelerator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: accelerator
+  template:
+    metadata:
+      labels:
+        app: accelerator
+    spec:
+      containers:
+      - name: accelerator
+        image: hchoi3/demo:v1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        resources:
+        #guarnteed resources
+          requests:
+            memory: "512Mi"
+            cpu: "100m"
+        #maximum resources
+          limits:
+            memory: "1024Mi"
+            cpu: "200m"
+      # imagePullSecrets:
+      # - name: myregistry
+    
