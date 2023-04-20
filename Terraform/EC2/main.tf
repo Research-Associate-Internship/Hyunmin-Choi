@@ -2,7 +2,7 @@ resource "aws_instance" "ec2" {
   ami = "ami-007855ac798b5175e"
 
   instance_type = "t2.micro"
-  key_name = "devops_lab"
+  key_name = "ec2"
   vpc_security_group_ids = [aws_security_group.MYSG.id]
   subnet_id = "${element(module.vpc.public_subnets, 0)}"
 
