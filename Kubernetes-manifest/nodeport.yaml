@@ -16,4 +16,5 @@ spec:
     #nodePort ranges from 30000-32767
     #the open port on the node
     nodePort: 30007
-  
+#NOTE by defaut security group created for worker does not allow traffic in must edit
+#To access outside of cluster use public ip of ec2 and nodeport 
