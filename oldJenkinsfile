@@ -40,9 +40,8 @@ pipeline {
                 //}
             }
         }
-     
-      
     }
+
 //after all instructions are ran this makes sure to log out of your registry   
 post{
     always {  
