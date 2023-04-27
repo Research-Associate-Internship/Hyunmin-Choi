@@ -16,10 +16,10 @@ spec:
     spec:
       containers:
       - name: webapp
-        image: hchoi3/demo:v1
+        image: hchoi3/demo:nodeapp
         imagePullPolicy: Always
         ports:
-        - containerPort: 80
+        - containerPort: 8080
         # resources:
         # #guarnteed resources
         #   requests:
