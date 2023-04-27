@@ -6,7 +6,7 @@ spec:
   type: NodePort
   #use selector to pick which pods to target 
   selector:
-    app: accelerator
+    app: devsecops
   ports:
   - protocol: TCP
     #the port on which the service is accessed.

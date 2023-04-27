@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: devsecops-kubernetes-deployment
+  name: devsecops-deployment
   labels:
-    app: accelerator
+    app: devsecops
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      app: accelerator
+      app: devsecops
   template:
     metadata:
       labels:
-        app: accelerator
+        app: devsecops
     spec:
       containers:
-      - name: accelerator
+      - name: webapp
         image: hchoi3/demo:v1
         imagePullPolicy: Always
         ports:
