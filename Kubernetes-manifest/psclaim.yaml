@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-name
+spec:
+  #indicates storage will be provisioned manually
+  #used when storage backend is not integrated with kubernetes
+  storageClassName: manual
+  accessModes:
+   - ReadWriteOnce
+  resources:
+   requests:
+    storage: 3Gi
