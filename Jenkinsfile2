@@ -16,7 +16,7 @@ stages {
 
     stage('vault') {
       environment {
-        VAULT_ADDR="http://10.0.1.230:8200"
+        VAULT_ADDR="http://alb-devsecops-1767924979.us-east-1.elb.amazonaws.com:81"
         //VAULT_NAMESPACE="<only for Vault Enterprise / HCP, remove otherwise>"
       }
       steps {
