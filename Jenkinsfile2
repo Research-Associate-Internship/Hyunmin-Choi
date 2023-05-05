@@ -21,6 +21,7 @@ stages {
       }
       steps {
         withCredentials([string(credentialsId: 'id-token', variable: 'IDTOKEN')]) {
+            sh 'cat $IDTOKEN'
             sh 'vault write -field=token auth/jwt/login jwt=${IDTOKEN} > token'
             sh 'set +x ; VAULT_TOKEN=$(cat token) vault read -field=data -format=json kv/data/my-secret'
         }
