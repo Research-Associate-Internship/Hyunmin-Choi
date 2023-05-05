@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-name
+spec:
+  capacity:
+    storage: 5Gi
+  #Block or Filesystem
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  #Recycle means data will be scrubbed(rm -rf folder). 
+  #Retain and Delete options 
+  persistentVolumeReclaimPolicy: Recycle
+  #tiers of I/O performance(slow, medium and fast)
+  storageClassName: slow
+  #storage backend parameters
+  mountOptions:
+    #specifys how a filesystem handles I/O errors
+    #instead of soft, hard I/O errors that occur will result in a failure of disk operation causing application to recieve an error
+    - hard
+    - nfsvers=4.1
+  nfs:
+    path: /tmp
+    #nfs server ip address
+    server: 172.17.0.2
