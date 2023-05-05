@@ -2,13 +2,15 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: fluentd-elasticsearch
-  namespace: kube-system
+  #namespace: kube-system
   labels:
     k8s-app: fluentd-logging
 spec:
+  #selects set of pods via labels
   selector:
     matchLabels:
       name: fluentd-elasticsearch
+  #defines state of the pods
   template:
     metadata:
       labels:
@@ -17,9 +19,11 @@ spec:
       containers:
       - name: fluentd-elasticsearch
         image: quay.io/fluentd_elasticsearch/fluentd:v2.5.2
+        #mounts the host directory /var/log to container
         volumeMounts:
         - name: varlog
           mountPath: /var/log
+      #amount of time kubernetes waits for container to gracefully terminate before foceful termination
       terminationGracePeriodSeconds: 30
       volumes:
       - name: varlog
